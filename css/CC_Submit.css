@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-image:url(../images/bg.jpg);
+	margin: 0;
+}
+#height{
+	height: 20px;
+}
+#TitleBox{
+	width: 1000px;
+	height: 48px;
+	margin: 0 auto;
+	border: 2px solid #DDD;
+	background-color: linen;
+	box-shadow: 5px 5px 3px 3px #888;
+	display: block;
+}
+#FlipSide{
+	width: 1000px;
+	height: 600px;
+	margin: 0 auto;
+	perspective:1500;
+	-webkit-perspective:1500; /* Safari 和 Chrome 单独支持的3D特效，为以后做准备*/
+}
+#RTFBox,#HTMLBox {
+	width: 1000px;
+	height: 600px;
+	border: 2px solid #DDD;
+	background-color: linen;
+	box-shadow: 5px 5px 3px 3px #888;
+	position: absolute;
+	overflow: auto;
+}
+#RTFBox{
+	border-radius: 0 0 30px 0;
+	transform: rotateY(0deg);
+}
+#HTMLBox {
+	border-radius: 0 0 0 30px;
+	transform: rotateY(-90deg);
+}
+#btn{
+	width: 1000px;
+	margin: 0 auto;
+}
+#btn input,#btn button{
+	width: 240px;
+	margin-right: 10px;
+}
+#leftStyleBox{
+	height: 100vh;
+	position: absolute;
+	width: 200px;
+	background-color: aqua;
+	z-index: 3;
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="js/jquery-2.0.0.min.j"></script>
+<script type="text/javascript" src="js/cc_flip.js"></script>
+<script type="text/javascript" src="js/cc_submit.js"></script>
+<link href="css/CC_Submit.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+<div id="leftStyleBox">
+	<button onClick="$('#leftStyleBox').hide()">关闭</button>
+	<!--<button onClick="document.execCommand('StyleWithCSS',false,false)">使用CSS样式1/ff</button>
+	<button onClick="document.execCommand('StyleWithCSS',false,true)">使用CSS样式2/ft</button>
+	<button onClick="document.execCommand('useCSS', 0, true)">使用CSS样式30t</button>
+	<button onClick="document.execCommand('useCSS', 0, false)">使用CSS样式30f</button>
+	<button onClick="document.execCommand('StyleWithCSS',true,false)">使用CSS样式Chrome/Webkit/tf</button>
+	<button onClick="document.execCommand('StyleWithCSS',true,true)">使用CSS样式Chrome/Webkit/tt</button>-->
+	<button onClick="document.execCommand('bold',false)">加粗</button>
+	<button onClick="document.execCommand('italic',false)">斜体</button>
+	<button onClick="">字体颜色</button>
+	<button onClick="">添加附件</button>
+</div>
+
+<div id="height"></div>
+
+<input id="TitleBox" type="text">
+
+<div id="height"></div>
+
+<div id="FlipSide">
+	<div id="RTFBox" contenteditable="true"></div>
+	<div id="HTMLBox" contenteditable="true"></div>
+</div>
+
+<div id="height"></div>
+
+
+	<a id="chgEditMode" onClick="chgEditMode()">切换到HTML编辑模式</a>
+	<select>
+		<option value="1">栏目1</option>
+		<option value="2">栏目2</option>
+		<option value="3">栏目3</option>
+		<option value="4">栏目4</option>
+	</select>
+	<button id="submitEdit" onClick="submitEdit()">保存并发布</button>
+
+
+	<div class="">
+		<div id="fcolor">
+			
+		</div>
+	</div>
+</body>
+<script>
+var FrontSide = $('#RTFBox');//正面
+var BackSide = $('#HTMLBox');//反面
+var FlipTime = 500;//翻面时间（这个值的两倍）
+var Trigger = $('#chgEditMode');//按钮/触发器
+var FlipStr1 = "切换到富文本编辑模式";//翻面提示
+var FlipStr2 = "切换到HTML编辑模式";
+BackSide.css({visibility:'hidden'});//隐藏另一面
+
+//切换编辑模式
+function chgEditMode(){
+	if(Side == 0){
+		$('#HTMLBox').text($('#RTFBox').html());
+	}else{
+		$('#RTFBox').html($('#HTMLBox').text());
+	}
+	CC_Flip();
+}
+
+//背景滚动
+var c=0;
+function timedCount(){
+	 $("body").css("background-position",c++);
+	 setTimeout("timedCount()",32);
+ }
+timedCount();
+</script>
+</html>
